@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de compras</h1>
+    <div class="search">
+      <form>
+        <input type="text" placeholder="Agregar despensa    ...">
+        <button class="btn-add">+</button>
+      </form>
+    </div>
+    <div class="li-container">
+      <ul>
+
+      </ul>
+    </div>
+    <div class="empty">
+      <p>despensa</p>
+    </div>
+    <button class="lista" id="lista">mostrar lista</button>
+    <ul  id="mostrar">
+
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -15,20 +56,20 @@
         <button id="btnCrear" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticulo" >Crear</button>
         <br />
         <br />
-        <button id="btnMostrar" type="button" class="btn btn-primary"  >Mostrar lista</button>
+        <button id="btnLibros" type="button" class="btn btn-primary"  >Mostrar libros</button>
         <table id="tableArticulos" class="table mt-2 table-bordered table-striped">
             <thead>
-              <tr id="obtener"></tr>
-                <tr id="mostrar">
+                <tr>
                     
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="mostrar">
+
             </tbody>
         </table>
     </div>
+</div>
 
-    
     <div id="modalArticulo" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -39,16 +80,20 @@
           <div class="modal-body">
             <form id="form">
               <div class="mb-3">
-                <label for="descripcion" class="col-form-label">Descripcion</label>
+                <label for="descripcion" class="col-form-label">Titulo</label>
                 <input id="descripcion" type="text" class="form-control" autofocus>
               </div>
               <div class="mb-3">
-                <label for="precio" class="col-form-label">Precio</label>
+                <label for="precio" class="col-form-label">Paginas</label>
                 <input id="precio" type="number" class="form-control" >
               </div>
               <div class="mb-3">
-                <label for="stock" class="col-form-label">Stock</label>
+                <label for="stock" class="col-form-label">Fecha de publicacion</label>
                 <input id="stock" type="number" class="form-control" >
+              </div>
+              <div class="mb-3">
+                <label for="precio" class="col-form-label">editorial</label>
+                <input id="precio" type="number" class="form-control" >
               </div>
           </div>
           <div class="modal-footer">
@@ -63,4 +108,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>-->
