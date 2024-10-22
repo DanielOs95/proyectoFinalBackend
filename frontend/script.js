@@ -51,58 +51,31 @@ btnShow.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         const showList = document.getElementById('mostrar');
+        showList.innerHTML = "";
         data.forEach(productos => {
             const showDatos = document.createElement('li');
             showDatos.textContent = productos.nombre;
+            const deleteBtn = document.createElement('button');
+
+            deleteBtn.textContent = "X";
+            deleteBtn.className = 'btn-delete';
+            showDatos.appendChild(deleteBtn);
             showList.appendChild(showDatos);
 
-          showList.appendChild(showDatos);
+            deleteBtn.addEventListener('click', (e) => {
+                const item = e.target.parentElement;
+        
+                showList.removeChild(item);
+
+        });
+       
         });
        
     })
     .catch(error => {
         console.error('Error:', error);
     });
+
+    showList.style.display = showList.style.display === 'block' ? 'none' : 'block';
 })
-
-
-
-
-/*let btnShow = document.getElementById('btnLibros')
-
-btnShow.addEventListener('click', () => {
-    fetch('http://localhost:3001/libros_project')
-    .then(response => response.json())
-    .then(data => {
-        const showList = document.getElementById('mostrar');
-        data.forEach(libros => {
-            const showDatos = document.createElement('tr');
-
-
-
-            const showTitulo = document.createElement('th')
-            showDatos.textContent = libros.titulo;
-            showList.appendChild(showTitulo);*/
-
-            /*const showPaginas = document.createElement('th')
-            showDatos.textContent = libros.paginas;
-            showList.appendChild(showPaginas);
-
-            const showPublicacion = document.createElement('th')
-            showDatos.textContent = libros.publicacion_fecha;
-            showList.appendChild(showPublicacion);
-
-            const showEditorial = document.createElement('th')
-            showDatos.textContent = libros.editorial;
-            showList.appendChild(showEditorial);*/
-
-
-            /*showList.appendChild(showDatos);
-        });
-       
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-})*/
 

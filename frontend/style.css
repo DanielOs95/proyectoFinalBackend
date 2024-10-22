@@ -104,6 +104,17 @@ li p {
 }
 
 .lista {
-    align-items: center;
-    background-color: darkcyan;
+    padding: 10px 20px;
+    background-color: darkcyan; 
+    color: white;
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    display: block; 
+    margin: 10px auto; 
+}
+
+.lista:hover {
+    background-color: lightseagreen;
 }
