@@ -1,4 +1,5 @@
 const input = document.querySelector('input');
+const form = document.getElementById('form')
 const addBtn = document.querySelector('.btn-add');
 const ul = document.querySelector('ul');
 const empty = document.querySelector('.empty');
@@ -6,6 +7,17 @@ const empty = document.querySelector('.empty');
 
 addBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    fetch('http://localhost:3001/backend_final', {
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre: nombre })
+    })
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error))
 
     const text =input.value.trim();
 
@@ -26,20 +38,8 @@ addBtn.addEventListener('click', (e) => {
 const addDeleteBtn = () => {
     const deleteBtn = document.createElement('button');
 
-    deleteBtn.textContent = "X";
+    deleteBtn.textContent = "✓";
     deleteBtn.className = 'btn-delete';
-
-    deleteBtn.addEventListener('click', (e) => {
-        const item = e.target.parentElement;
-
-        ul.removeChild(item);
-
-        const items = document.querySelectorAll('li');
-
-        if (items.length === 0) {
-            empty.style.display = "block";
-        }
-    });
 
     return deleteBtn;
 };
@@ -55,18 +55,31 @@ btnShow.addEventListener('click', () => {
         data.forEach(productos => {
             const showDatos = document.createElement('li');
             showDatos.textContent = productos.nombre;
+            
             const deleteBtn = document.createElement('button');
-
             deleteBtn.textContent = "X";
             deleteBtn.className = 'btn-delete';
             showDatos.appendChild(deleteBtn);
             showList.appendChild(showDatos);
 
             deleteBtn.addEventListener('click', (e) => {
-                const item = e.target.parentElement;
-        
-                showList.removeChild(item);
-
+                const items = e.target.parentElement;
+                const nombre = items.firstChild.textContent;//deleteBtn.getAttribute('btn-delete');
+                console.log(nombre)
+                fetch(`http://localhost:3001/backend_final/despensa/${nombre}`, {
+                    method: 'DELETE',
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('error al eliminar')
+                    }
+                    return response.json()
+                })
+                .then((data) => {
+                    console.log(data);
+                    showList.removeChild(showDatos);
+                })
+                .catch((error) => console.error(error))
         });
        
         });
@@ -76,6 +89,10 @@ btnShow.addEventListener('click', () => {
         console.error('Error:', error);
     });
 
-    showList.style.display = showList.style.display === 'block' ? 'none' : 'block';
+    
 })
+
+
+
+
 

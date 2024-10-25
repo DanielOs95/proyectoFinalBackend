@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        fetch( 'https://rickandmortyapi.com/api/character')
+        .then(response => response.json())
+        .then(data => {
+    const apiShow = document.getElementById('contenedor-api');
+
+    apiShow.innerHTML = "" ;
+
+    const images = data.results;
+
+    images.forEach(character => {
+        const div = document.createElement('div');
+        const showImages = document.createElement('img');
+        showImages.src = character.image;
+        showImages.alt = character.name;
+        showImages.width = "250";
+        showImages.height = "150"
+
+        div.appendChild(showImages);
+        apiShow.appendChild(div)
+    })
+    
+
+})
+.catch(error => console.error(error));
+    </script>
+
+
+
+<style>
+
+    body {
+        background-color: cadetblue;
+    }
+    #contenedor-api {
+        text-align: center;
+    }
+
+    img {
+        padding-bottom: 20px;
+    }
+
+    img:hover {
+        transform: scale(1.2);
+    }
+</style>
+
+</head>
+<body>
+
+    
+    <div id="contenedor-api">
+
+    </div>
+</body>
+</html>

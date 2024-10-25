@@ -118,3 +118,19 @@ li p {
 .lista:hover {
     background-color: lightseagreen;
 }
+
+
+a {
+    position: absolute;
+    text-decoration: none;
+    padding-left: 40px;
+    font-family: fantasy;
+    font-size: 2em;
+    color: rgb(83, 4, 4);
+}
+
+a:hover {
+    color: blue;
+    cursor: pointer;
+
+}
