@@ -66,7 +66,7 @@ li p {
 .btn-delete {
     margin-left: auto;
     border: none;
-    background-color: #e31746;
+    background-color: lightseagreen;
     color: white;
     font-weight: bold;
     padding: 5px 10px;
@@ -78,10 +78,10 @@ li p {
     text-align: center;
 }
 
-.btn-delete:hover {
+/*.btn-delete:hover {
     cursor: pointer;
     background-color: lightseagreen;
-}
+}*/
 
 .btn-add {
     padding: 5px 15px;
